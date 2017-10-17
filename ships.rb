@@ -2,7 +2,7 @@ class Field
 	attr_reader :size
 
 	#Creating a field with default size 10x10
-	def initialize(size=10)
+	def initialize(size = 10)
 		@size = size
 		@field = Array.new(size) do |x|
 			Array.new(size) { |y| Cell.new(self, x, y) }
