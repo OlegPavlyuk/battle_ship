@@ -1,4 +1,4 @@
-class Field 
+class Field
 	attr_reader :size
 
 	#Creating a field with default size 10x10
@@ -16,7 +16,7 @@ class Field
     @field[x][y]
 	end
 
-	#Getting an array of chunks with unoccupied cells 
+	#Getting an array of chunks with unoccupied cells
 	def free_space
 		#selecting horizontal available space
 		horizontal_space = @field.flat_map { |line| line.chunk(&:free?).select(&:first).map(&:last) }
@@ -43,7 +43,6 @@ class Field
       line.map(&:to_s).join(" ")
     end.join("\n")
   end
-
 
 end
 
@@ -92,9 +91,9 @@ def start
 	#create instance of Field
 	field = Field.new
 	#create array of ships
-	ships = [ 4,3,3,2,2,2,1,1,1,1 ]
+	fleet = [ 4,3,3,2,2,2,1,1,1,1 ]
 	#add each ship to the field
-	ships.map do |ship|
+  fleet.map do |ship|
 		field.add_ship(ship)
 	end
 	#print field
